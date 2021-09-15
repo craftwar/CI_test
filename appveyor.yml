@@ -12,10 +12,11 @@ image: Visual Studio 2019
 init:
   - ps: if (0) { iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1')) } #rdp debug
 install:
+  - cmd: echo %time%
+  - ps: .\script\install_winsdk.ps1
+  - cmd: echo %time%
 #  - ps: (Get-Item C:\Qt\5.14\msvc2017_64\bin\Qt5Core.dll).VersionInfo
-  - if 1==1 script\cmd_set.cmd
-  - set
-  - script\cmd_set.cmd
-  - set
+  # - script\cmd_set.cmd
+  # - set
 
 test: off
